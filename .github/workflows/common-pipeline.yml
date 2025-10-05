@@ -1,1 +1,33 @@
-xsd
+name: Common Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      Tehnology:
+        required: true
+        type: string
+      secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  build:
+    runs-on: sample-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Application
+        run: |
+          echo "Building for environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
+
+      - name: Build Application
+        run: |
+          echo "Building for environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"    
+
+      - name: Build Application
+        run: |
+          echo "Building for environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
