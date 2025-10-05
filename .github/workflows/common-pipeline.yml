@@ -14,17 +14,20 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build Application
+      - name: Build Application For Java
+        if: ${{ inputs.Technology == 'java' }}
         run: |
-          echo "Building for environment: ${{ inputs.environment }}"
-          echo "Version: ${{ inputs.version }}"
+          sudo docker build -t java-spring-image:latest .
+          sudo docker images
 
-      - name: Build Application
+      - name: Build Application For Node.js
+        if: ${{ inputs.Technology == 'python' }}
         run: |
-          echo "Building for environment: ${{ inputs.environment }}"
-          echo "Version: ${{ inputs.version }}"    
+          sudo docker build -t nodejs-pharmacy-node:latest .
+          sudo docker images    
 
-      - name: Build Application
+      - name: Build Application For Python
+        if: ${{ inputs.Technology == 'nodejs' }}
         run: |
-          echo "Building for environment: ${{ inputs.environment }}"
-          echo "Version: ${{ inputs.version }}"
+          sudo docker build -t python-crude-example:latest .
+          sudo docker images
