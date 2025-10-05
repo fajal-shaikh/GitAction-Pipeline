@@ -9,14 +9,14 @@ on:
 
 jobs:
   CheckOut-Stage:
-    runs-on: sample1
+    runs-on: sample2
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
   Build-Stage:
     needs: [CheckOut-Stage]
-    runs-on: sample1
+    runs-on: sample2
     steps:
       - name: Build Application For Java
         if: ${{ inputs.Technology == 'java' }}
