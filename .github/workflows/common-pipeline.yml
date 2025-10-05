@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: sample-test
+    runs-on: sample1
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
