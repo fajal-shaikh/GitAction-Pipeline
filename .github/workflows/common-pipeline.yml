@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: sample-latest
+    runs-on: sample-test
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
