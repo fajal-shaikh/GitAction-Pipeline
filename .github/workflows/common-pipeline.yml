@@ -3,10 +3,10 @@ name: Common Pipeline
 on:
   workflow_call:
     inputs:
-      Tehnology:
+      Technology:
         required: true
         type: string
-      secrets:
+    secrets:
       GITHUB_TOKEN:
         required: true
 
