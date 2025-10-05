@@ -8,12 +8,16 @@ on:
         type: string
 
 jobs:
-  build:
+  CheckOut-Stage:
     runs-on: sample1
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+  Build-Stage:
+    needs: [CheckOut-Stage]
+    runs-on: sample1
+    steps:
       - name: Build Application For Java
         if: ${{ inputs.Technology == 'java' }}
         run: |
@@ -21,13 +25,13 @@ jobs:
           sudo docker images
 
       - name: Build Application For Node.js
-        if: ${{ inputs.Technology == 'python' }}
+        if: ${{ inputs.Technology == 'nodejs' }}
         run: |
           sudo docker build -t nodejs-pharmacy-node:latest .
           sudo docker images    
 
       - name: Build Application For Python
-        if: ${{ inputs.Technology == 'nodejs' }}
+        if: ${{ inputs.Technology == 'python' }}
         run: |
           sudo docker build -t python-crude-example:latest .
           sudo docker images
